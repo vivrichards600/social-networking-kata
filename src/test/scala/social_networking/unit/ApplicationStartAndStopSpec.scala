@@ -3,7 +3,7 @@ package social_networking.unit
 import scala.sys.process._
 import social_networking.Spec.UnitSpec
 
-class TwitterStartAndStopSpec extends UnitSpec {
+class ApplicationStartAndStopSpec extends UnitSpec {
 
   "Litte Twitter" should {
     "should prompt > to Console when started and bye! for exit() command" in {
