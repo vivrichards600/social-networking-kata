@@ -9,7 +9,7 @@ class ExitCommandSpec extends UnitSpec{
   "Exit command" should {
     "print 'bye!' to the console and exit the application" in {
         val exitCommand = new ExitCommand(console, system)
-      
+
         exitCommand.execute()
 
         verify(console).println("bye!")
