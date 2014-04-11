@@ -7,7 +7,7 @@ import org.mockito.BDDMockito._
 
 class ApplicationSpec extends UnitSpec{
   "Application" should {
-    "handle a command" in {
+    "handle a userCommand" in {
       given(console.readline()) willReturn(POST_COMMAND, EXIT_COMMAND)
 
       application.start()
