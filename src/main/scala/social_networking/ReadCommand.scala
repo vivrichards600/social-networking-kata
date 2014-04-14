@@ -1,7 +1,7 @@
 package social_networking
 
-class ReadCommand(command: String, userRepository: UserRepository) extends Command {
+class ReadCommand(user: String, userRepository: UserRepository) extends Command {
   override def execute: Unit = {
-    userRepository.postsBy(command)
+    userRepository.postsBy(user)
   }
 }
