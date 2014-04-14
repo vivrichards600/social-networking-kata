@@ -5,7 +5,7 @@ import scala.sys.process._
 
 class SocialNetworkingAcceptanceTest extends  AcceptanceSpec with Matchers {
 
-  feature ("Publishing and reading messages") {
+  feature("Publishing and reading messages") {
 
     scenario("Alice publishes messages") {
 
@@ -26,6 +26,7 @@ class SocialNetworkingAcceptanceTest extends  AcceptanceSpec with Matchers {
       output should be (messages(conversation.map(_._1)))
     }
   }
+
 
   def messages(messages: List[String]): String = {
     messages.mkString("")
