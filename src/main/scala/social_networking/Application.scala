@@ -5,10 +5,10 @@ class Application(console: Console, system: System, commandExecutor: CommandExec
   def start() = {
     var userCommand = ""
     prompt
-    while (userCommand != "exit") {
-      userCommand = console.readline()
-      commandExecutor.execute(userCommand)
+    while ({userCommand = console.readline(); userCommand != "exit"}) {
+      commandExecutor.execute(userCommand): Option[String]
     }
+    console print("bye!")
   }
 
   private def prompt {
