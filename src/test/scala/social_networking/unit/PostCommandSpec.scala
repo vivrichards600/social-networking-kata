@@ -11,7 +11,7 @@ class PostCommandSpec extends UnitSpec {
 
       postCommand.execute
 
-      verify(userRepository).savePost(List("Alice", "Hello"))
+      verify(userRepository).savePost("Alice", "Hello")
     }
   }
 

@@ -8,6 +8,6 @@ class PostCommand(command: String, userRepository: UserRepository) extends Comma
     val user = seperateUserAndMessage(0)
     val message = seperateUserAndMessage(1)
 
-    userRepository.savePost(List(user, message))
+    userRepository.savePost(user, message)
   }
 }

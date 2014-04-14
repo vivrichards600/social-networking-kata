@@ -35,7 +35,7 @@ class SocialNetworkingAcceptanceTest extends  AcceptanceSpec with Matchers {
   def twitterOutputForMessages(messages: List[String]): String = {
     (
       Seq("echo",  messages.mkString("\r\n") + "\r\n") #|
-        Seq("/usr/bin/scala", "-cp", "./target/scala-2.10/classes", "social_networking.Twitter")
+        Seq("/usr/bin/scala", "-cp", "./target/scala-2.10/classes", "social_networking.Application")
       ).!!
   }
 
