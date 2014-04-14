@@ -20,7 +20,8 @@ object Application extends App {
 
   val console = new Console
   val system = new System
-  val commandFactory = new CommandFactory(console: Console, system: System)
+  val userRepository = new UserRepository
+  val commandFactory = new CommandFactory(console: Console, system: System, userRepository: UserRepository)
   val commandExecutor = new CommandExecutor(console: Console, system: System, commandFactory:CommandFactory)
   val twitter = new Application(console, system, commandExecutor)
 

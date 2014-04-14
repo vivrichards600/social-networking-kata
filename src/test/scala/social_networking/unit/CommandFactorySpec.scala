@@ -16,13 +16,14 @@ class CommandFactorySpec extends UnitSpec{
     "create a post command" in {
       val command = commandFactory.create(POST_USER_COMMAND)
 
-      command shouldBe a [PostCommand]
+      command shouldBe a [PostCommandSpec]
     }
   }
 
   val console = new Console
   val system = new System
-  val commandFactory = new CommandFactory(console: Console, system: System)
+  val userRepository = new UserRepository
+  val commandFactory = new CommandFactory(console: Console, system: System, userRepository: UserRepository)
   val EXIT_USER_COMMAND = "exit"
   val POST_USER_COMMAND = "Alice -> It is a sunny day"
 }

@@ -1,5 +1,15 @@
 package social_networking
 
-class PostCommand extends Command {
-  override def execute(): Unit = ???
+class PostCommand(command: String, userRepository: UserRepository) extends Command {
+
+  override def execute: Unit = {
+
+    val seperateUserAndMessage = command.split(" -> ")
+    val user = seperateUserAndMessage(0)
+    val message = seperateUserAndMessage(1)
+
+    userRepository.savePost(List(user, message))
+
+  }
+
 }
