@@ -16,5 +16,17 @@ class UserRepositorySpec extends UnitSpec {
 
       posts.get shouldBe List("Another Post", "A Post")
     }
+
+    "return only Alices posts" in {
+      val userRepository = new UserRepository
+
+      userRepository.savePost("Alice","A post")
+      userRepository.savePost("Charlie","Another post")
+      userRepository.savePost("Alice","My second post")
+
+      val posts = userRepository.postsBy("Alice")
+
+      posts.get shouldBe List("My second post", "A post")
+    }
   }
 }

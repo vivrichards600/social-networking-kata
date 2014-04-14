@@ -10,6 +10,7 @@ class UserRepository {
   }
 
   def postsBy(user: String): Option[List[String]] = {
-     Some(posts.map(_._2).toList)
+    Some(posts.filter(_._1 == user).map(_._2).toList)
   }
 }
+
