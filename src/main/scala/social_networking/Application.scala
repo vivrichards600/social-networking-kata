@@ -6,7 +6,7 @@ class Application(console: Console, system: System, commandExecutor: CommandExec
     var userCommand = ""
     prompt
     while ({userCommand = console.readline(); userCommand != "exit"}) {
-      commandExecutor.execute(userCommand): Option[String]
+      commandExecutor.execute(userCommand): Option[List[String]]
     }
     console print("bye!")
   }

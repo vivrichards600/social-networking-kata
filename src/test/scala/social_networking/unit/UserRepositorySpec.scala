@@ -2,18 +2,19 @@ package social_networking.unit
 
 import social_networking.Spec.UnitSpec
 import social_networking.UserRepository
+import org.mockito.BDDMockito._
 
 class UserRepositorySpec extends UnitSpec {
-//  "Save post" should {
-//
-//    "save a user and message to the repository" in {
-//      val userRepository = new UserRepository
-//      val USER = List("Alice", "Hello")
-//      val USER = List("Alice", "Hello")
-//
-//      userRepository.savePost(USER)
-//
-//
-//    }
-//  }
+  "User repository" should {
+    "return posts from Alice in reverse chronological order" in {
+      val userRepository = new UserRepository
+
+      userRepository.savePost("Alice","A Post")
+      userRepository.savePost("Alice","Another Post")
+
+      val posts = userRepository.postsBy("Alice")
+
+      posts.get shouldBe List("Another Post", "A Post")
+    }
+  }
 }

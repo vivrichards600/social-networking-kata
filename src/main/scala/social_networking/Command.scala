@@ -1,5 +1,5 @@
 package social_networking
 
 abstract class Command  {
-  def execute() : Option[String]
+  def execute() : Option[List[String]]
 }
