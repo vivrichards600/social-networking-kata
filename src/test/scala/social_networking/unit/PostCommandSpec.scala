@@ -6,7 +6,7 @@ import social_networking.{PostCommand, UserRepository}
 
 class PostCommandSpec extends UnitSpec {
   "Post command" should {
-    "identify a user and message" in {
+    "post Alices message" in {
       val postCommand = new PostCommand("Alice -> Hello", userRepository)
 
       postCommand.execute
