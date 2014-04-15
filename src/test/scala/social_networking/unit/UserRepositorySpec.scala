@@ -8,29 +8,31 @@ class UserRepositorySpec extends UnitSpec {
     "return posts from Alice in reverse chronological order" in {
       val userRepository = new UserRepository
 
-      userRepository.savePost(ALICE, FIRST_POST)
-      userRepository.savePost(ALICE, SECOND_POST)
+      userRepository.savePost(ALICE, FIRST_MESSAGE)
+      userRepository.savePost(ALICE, SECOND_MESSAGE)
 
       val posts = userRepository.postsBy(ALICE)
 
-      posts.get shouldBe List("Alice - " + SECOND_POST, "Alice - " + FIRST_POST)
+      posts.get shouldBe List(SECOND_POST, FIRST_POST)
     }
 
     "return only Alices posts" in {
       val userRepository = new UserRepository
 
-      userRepository.savePost(ALICE, FIRST_POST)
-      userRepository.savePost(CHARLIE, FIRST_POST)
-      userRepository.savePost(ALICE, SECOND_POST)
+      userRepository.savePost(ALICE, FIRST_MESSAGE)
+      userRepository.savePost(CHARLIE, FIRST_MESSAGE)
+      userRepository.savePost(ALICE, SECOND_MESSAGE)
 
       val posts = userRepository.postsBy(ALICE)
 
-      posts.get shouldBe List("Alice - " + SECOND_POST, "Alice - " + FIRST_POST)
+      posts.get shouldBe List(SECOND_POST, FIRST_POST)
     }
   }
 
   val ALICE = "Alice"
   val CHARLIE = "Charlie"
-  val FIRST_POST = "first post"
-  val SECOND_POST = "second post"
+  val FIRST_MESSAGE = "first post"
+  val SECOND_MESSAGE = "second post"
+  val FIRST_POST = ALICE + " - " + FIRST_MESSAGE
+  val SECOND_POST = ALICE + " - " + SECOND_MESSAGE
 }
