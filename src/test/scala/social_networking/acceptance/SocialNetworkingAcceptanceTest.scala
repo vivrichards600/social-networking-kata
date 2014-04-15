@@ -13,7 +13,7 @@ class SocialNetworkingAcceptanceTest extends  AcceptanceSpec with Matchers {
       val conversation = List(
         "> " -> "Alice -> it's a nice day!",
         "> " -> "Alice -> very sunny!!",
-        "> " -> "Alice read",
+        "> " -> "Alice",
 
         "Alice - very sunny!!\n" + "Alice - it's a nice day!\n" + "> " -> "exit",
 

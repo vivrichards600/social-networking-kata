@@ -6,7 +6,7 @@ class UserRepository {
 
 
   def savePost(user:String, post: String) = {
-    posts = (user, post) +: posts
+    posts = (user, user + " - " + post) +: posts
   }
 
   def postsBy(user: String): Option[List[String]] = {

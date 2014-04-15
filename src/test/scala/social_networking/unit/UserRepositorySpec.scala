@@ -13,7 +13,7 @@ class UserRepositorySpec extends UnitSpec {
 
       val posts = userRepository.postsBy(ALICE)
 
-      posts.get shouldBe List(SECOND_POST, FIRST_POST)
+      posts.get shouldBe List("Alice - " + SECOND_POST, "Alice - " + FIRST_POST)
     }
 
     "return only Alices posts" in {
@@ -25,12 +25,12 @@ class UserRepositorySpec extends UnitSpec {
 
       val posts = userRepository.postsBy(ALICE)
 
-      posts.get shouldBe List(SECOND_POST, FIRST_POST)
+      posts.get shouldBe List("Alice - " + SECOND_POST, "Alice - " + FIRST_POST)
     }
   }
 
-  val ALICE = "ALICE"
-  val CHARLIE = "CHARLIE"
-  val FIRST_POST = "Alice first post"
-  val SECOND_POST = "Alice second post"
+  val ALICE = "Alice"
+  val CHARLIE = "Charlie"
+  val FIRST_POST = "first post"
+  val SECOND_POST = "second post"
 }

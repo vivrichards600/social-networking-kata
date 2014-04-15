@@ -8,6 +8,7 @@ class Application(console: Console, system: System, commandExecutor: CommandExec
     while ({userCommand = console.readline(); userCommand != "exit"}) {
       val posts = commandExecutor.execute(userCommand): Option[List[String]]
       posts.getOrElse(List()).foreach(console println)
+      prompt
     }
     console print("bye!")
   }

@@ -15,9 +15,7 @@ class ApplicationSpec extends UnitSpec{
 
       verify(commandExecutor).execute(POST_COMMAND)
     }
-  }
 
-  "Application" should {
     "print posts on the console when posts are returned" in new context {
       given(console.readline()) willReturn(READ_COMMAND, EXIT_COMMAND)
       given(commandExecutor.execute(READ_COMMAND)) willReturn(Some(List("It is a sunny day")))
@@ -25,6 +23,15 @@ class ApplicationSpec extends UnitSpec{
       application.start()
 
       verify(console).println("It is a sunny day")
+    }
+
+    "print a prompt after receiving a post" in new context {
+      given(console.readline()) willReturn(READ_COMMAND, EXIT_COMMAND)
+
+      application.start()
+
+      verify(console, times(2)).print("> ")
+
     }
   }
 
