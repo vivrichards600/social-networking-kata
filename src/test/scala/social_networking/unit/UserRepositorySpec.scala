@@ -5,9 +5,7 @@ import social_networking.UserRepository
 
 class UserRepositorySpec extends UnitSpec {
   "User repository" should {
-    "return posts from Alice in reverse chronological order" in {
-      val userRepository = new UserRepository
-
+    "return posts from Alice in reverse chronological order" in new context {
       userRepository.savePost(ALICE, FIRST_MESSAGE)
       userRepository.savePost(ALICE, SECOND_MESSAGE)
 
@@ -16,9 +14,7 @@ class UserRepositorySpec extends UnitSpec {
       posts.get shouldBe List(SECOND_POST, FIRST_POST)
     }
 
-    "return only Alices posts" in {
-      val userRepository = new UserRepository
-
+    "return only Alices posts" in new context {
       userRepository.savePost(ALICE, FIRST_MESSAGE)
       userRepository.savePost(CHARLIE, FIRST_MESSAGE)
       userRepository.savePost(ALICE, SECOND_MESSAGE)
@@ -27,6 +23,10 @@ class UserRepositorySpec extends UnitSpec {
 
       posts.get shouldBe List(SECOND_POST, FIRST_POST)
     }
+  }
+
+  trait context {
+    val userRepository = new UserRepository
   }
 
   val ALICE = "Alice"
